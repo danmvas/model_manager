@@ -1,5 +1,6 @@
 from pathlib import Path, os
 from dotenv import load_dotenv
+from datetime import timedelta
 
 load_dotenv()
 
@@ -125,4 +126,10 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTStatelessUserAuthentication',
     )
+}
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(hours=2),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+    'SIGNING_KEY': SECRET_KEY
 }
